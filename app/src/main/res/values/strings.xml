@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tester</string>
+    <string name="button1">FIND PUBLIC TESTS</string>
+    <string name="button2">CREATE YOUR OWN TEST</string>
+    <string name="button3">LOOK AT YOUR RESULTS</string>
+    <string name="url">http://android.tinhost.ru/api.php</string>
+</resources>
