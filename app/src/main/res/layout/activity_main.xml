@@ -2,29 +2,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}">
+    tools:context="${relativePackage}.${activityClass}"
+    android:background="#fa0f0691">
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" android:layout_marginTop="179dp">
+            android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="70dp"
+        android:weightSum="1">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Authorization"
+                android:id="@+id/button"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:width="150dp"
+            android:height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#feea35" />
+
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button1"
-                android:id="@+id/main_button1" android:layout_gravity="center_horizontal"
-                />
+                android:id="@+id/main_button1"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/editText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:width="150dp"
+            android:height="60dp"/>
+
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button2"
-                android:id="@+id/main_button2" android:layout_gravity="center_horizontal"/>
+                android:id="@+id/main_button2" android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/main_button1"
+            android:layout_centerHorizontal="true"
+            android:width="150dp"
+            android:height="60dp"/>
+
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/button3"
                 android:id="@+id/main_button3" android:layout_gravity="center_horizontal"
-                android:nestedScrollingEnabled="false"/>
+                android:nestedScrollingEnabled="false"
+            android:layout_below="@+id/main_button2"
+            android:layout_centerHorizontal="true"
+            android:width="150dp"
+            android:height="60dp"/>
     </LinearLayout>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+        android:hint="Sample text"
+        android:width="250dp"
+        android:height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#fefefd" />
+
 </RelativeLayout>
