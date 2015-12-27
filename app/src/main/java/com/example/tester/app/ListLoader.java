@@ -7,10 +7,7 @@ import android.os.AsyncTask;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.*;
 
 
 import java.io.*;
@@ -87,8 +84,8 @@ class ListLoader extends AsyncTask<Void, Integer, TestInfo[]> {
                 currentActivity.startActivity(intent);
             }
         });
-
-        currentActivity.switcher.getNextView();
+        currentActivity.listView.setAdapter(new ArrayAdapter<String>(currentActivity,android.R.layout.simple_list_item_1, currentActivity.getString()));
+        currentActivity.switcher.showNext();
         Log.d(LOG_TAG,"ASYNC TASK _ EXIT");
     }
 }

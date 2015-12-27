@@ -30,4 +30,12 @@ public class PublicTestsActivity extends Activity{
     @Override protected void onDestroy() {
         super.onDestroy();
     }
+
+    String[] getString() {
+        String str[] = new String[tests.length];
+        for (int i = 0; i < str.length; i++) {
+            str[i] = tests[i].name + " with rating : " + tests[i].rait;
+        }
+        return str;
+    }
 }
