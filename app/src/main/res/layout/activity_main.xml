@@ -26,5 +26,15 @@
                 android:text="@string/button3"
                 android:id="@+id/main_button3" android:layout_gravity="center_horizontal"
                 android:nestedScrollingEnabled="false"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="эта кнопка для авторизации в вк сделай ее поменьше и покрасивше"
+                android:id="@+id/button" android:layout_gravity="center_horizontal"/>
     </LinearLayout>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+            android:text="если я правильно понял это поле для ввода - ну вообщем его тоже как нибудь поерасивше положи"/>
 </RelativeLayout>
