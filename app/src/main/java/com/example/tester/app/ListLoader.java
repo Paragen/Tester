@@ -32,7 +32,7 @@ class ListLoader extends AsyncTask<Void, Integer, TestInfo[]> {
         HttpURLConnection url = null;
         TestInfo[] tests = null;
         try {
-            Uri uri = Uri.parse(currentActivity.getString(R.string.url)).buildUpon().appendQueryParameter("command", "get_list").appendQueryParameter("password","1334rk").build();
+            Uri uri = Uri.parse(currentActivity.getString(R.string.host_url)).buildUpon().appendQueryParameter("command", "get_list").appendQueryParameter("password","1334rk").build();
             url = (HttpURLConnection) new URL(uri.toString()).openConnection();
             InputStream in = url.getInputStream();
             JsonReader reader = new JsonReader(new InputStreamReader(in));

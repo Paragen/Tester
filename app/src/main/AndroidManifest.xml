@@ -21,6 +21,7 @@
         <activity android:name=".CreateTestActivity"/>
         <activity android:name=".ResultActivity"/>
         <activity android:name=".Test"/>
+        <activity android:name=".vk_login.LoginActivity"/>
     </application>
 
 </manifest>

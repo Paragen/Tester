@@ -3,5 +3,8 @@
     <string name="button1">FIND PUBLIC TESTS</string>
     <string name="button2">CREATE YOUR OWN TEST</string>
     <string name="button3">LOOK AT YOUR RESULTS</string>
-    <string name="url">http://android.tinhost.ru/api.php</string>
+    <string name="host_url">http://android.tinhost.ru/api.php</string>
+    <string name="app_id">5204789</string>
+    <string name="base_oauth_url">https://oauth.vk.com/authorize</string>
+    <string name="redirect_url">https://oauth.vk.com/blank.html</string>
 </resources>
