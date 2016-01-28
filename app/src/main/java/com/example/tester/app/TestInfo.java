@@ -2,6 +2,6 @@ package com.example.tester.app;
 
 
 public class TestInfo {
-    String  name;
+    String  name,category;
     int rait, id;
 }

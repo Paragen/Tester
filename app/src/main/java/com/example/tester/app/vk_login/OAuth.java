@@ -12,19 +12,16 @@ import java.net.URL;
 public class OAuth {
     public static String token;
     public static  String user_id;
-    static final String VK_URI = "https://api.vk.com/method/";
+    public static final String VK_URI = "https://api.vk.com/method/", REDIRECT_URL = "https://oauth.vk.com/blank.html",
+        APP_ID = "5204789", BASE_URL = "https://oauth.vk.com/authorize";
     private static final String LOG_TAG = "OAuth";
-    static String getOAuthUrl(Context context) {
+    public static String getOAuthUrl() {
         StringBuilder url = new StringBuilder();
-        url.append(context.getString(R.string.base_oauth_url));
-        url.append("?client_id=").append(context.getString(R.string.app_id));
-        url.append("&redirect_uri=").append(context.getString(R.string.redirect_url));
+        url.append(BASE_URL);
+        url.append("?client_id=").append(APP_ID);
+        url.append("&redirect_uri=").append(REDIRECT_URL);
         url.append("&display=mobile").append("&scope=wall").append("&response_type=token").append("&v=5.42");
         return url.toString();
     }
 
-    public static boolean publish(String text) {
-        new Thread(new PostRunnable(text)).start();
-        return true;
-    }
 }

@@ -8,31 +8,28 @@ import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.example.tester.app.vk_login.OAuth;
 
 
 import java.io.*;
 import java.net.*;
 
 
-class ListLoader extends AsyncTask<Void, Integer, TestInfo[]> {
+class ResultLoader extends AsyncTask<Void, Integer, TestInfo[]> {
 
-    private PublicTestsActivity currentActivity;
-    private final String LOG_TAG = "List Loader";
+    private ResultActivity currentActivity;
+    private final String LOG_TAG = "Result Loader";
 
-    ListLoader(PublicTestsActivity currentActivity) {
+    ResultLoader(ResultActivity currentActivity) {
         this.currentActivity = currentActivity;
 
-    }
-
-    void activityUpdate(PublicTestsActivity newActivity) {
-        currentActivity = newActivity;
     }
 
     protected TestInfo[] doInBackground(Void... ignore) {
         HttpURLConnection url = null;
         TestInfo[] tests = null;
         try {
-            Uri uri = Uri.parse(currentActivity.getString(R.string.host_url)).buildUpon().appendQueryParameter("password","1334rk").appendQueryParameter("command", "get_list").build();
+            Uri uri = Uri.parse(currentActivity.getString(R.string.host_url)).buildUpon().appendQueryParameter("password","1334rk").appendQueryParameter("command", "result").appendQueryParameter("idvk", OAuth.user_id).build();
             url = (HttpURLConnection) new URL(uri.toString()).openConnection();
             InputStream in = url.getInputStream();
             JsonReader reader = new JsonReader(new InputStreamReader(in));
@@ -46,13 +43,11 @@ class ListLoader extends AsyncTask<Void, Integer, TestInfo[]> {
                 reader.beginObject();
                 tests[i] = new TestInfo();
                 reader.nextName();
-                tests[i].id = reader.nextInt();
-                reader.nextName();
                 tests[i].name = reader.nextString();
                 reader.nextName();
                 tests[i].rait = reader.nextInt();
                 reader.nextName();
-                tests[i].category = reader.nextString();
+                tests[i].id = reader.nextInt();
 
 
                 reader.endObject();
@@ -74,12 +69,13 @@ class ListLoader extends AsyncTask<Void, Integer, TestInfo[]> {
 
     @Override
     protected void onPostExecute(TestInfo[] tests) {
-        if (tests == null) {
+        if (tests==null) {
             currentActivity.finish();
         } else {
             currentActivity.tests = tests;
-            currentActivity.sort();
-            currentActivity.switcher.showNext();
+            currentActivity.setList();
+            currentActivity.textView.setText("You completed " + tests.length + " tests in summary.");
+            currentActivity.flipper.showNext();
         }
         Log.d(LOG_TAG,"ASYNC TASK _ EXIT");
     }

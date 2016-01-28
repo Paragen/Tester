@@ -1,13 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_height="match_parent"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+        android:id="@+id/passing_switcher"
+              android:background="@drawable/main">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="TESTS HAVE BEGUN"
-            android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
-</LinearLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_weight="5"
+                  android:id="@+id/passing_title"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30sp"/>
+        <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="35sp"
+                android:id="@+id/passing_question"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="20"/>
+        <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:id="@+id/scrollView">
+            <RadioGroup android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:id="@+id/radio">
+
+            </RadioGroup>
+        </ScrollView>
+        <Button android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="Next"
+                android:layout_weight="5"
+                android:id="@+id/passing_next"
+                android:textSize="30sp"
+                android:background="#ff01325a"
+                android:textColor="#ffffffff"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           >
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/result_title"
+                  android:text="@string/congratulation"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textSize="50sp"
+                android:layout_margin="30dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/result_result"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textSize="35sp"
+                android:layout_margin="30dp"/>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal">
+            <Button android:layout_width="wrap_content" android:layout_height="fill_parent"
+                    android:text="Try again..."
+                    android:id="@+id/result_try"
+                    android:layout_weight="1"
+                    android:layout_margin="30dp"
+                    android:textSize="30sp"
+                    android:textColor="#ffffffff"
+                    android:background="#ff01325a"/>
+            <Button android:layout_width="wrap_content" android:layout_height="fill_parent"
+                    android:text="Back to list"
+                    android:id="@+id/result_finish"
+                    android:layout_weight="1"
+                    android:layout_margin="30dp"
+                    android:textSize="30sp"
+                    android:background="#ff01325a"
+                    android:textColor="#ffffffff"/>
+        </LinearLayout>
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Shared result"
+                android:id="@+id/result_vk"
+                android:layout_margin="30dp"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:background="#ff6382a8"/>
+    </LinearLayout>
+</ViewSwitcher>
